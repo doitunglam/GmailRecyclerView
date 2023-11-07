@@ -3,6 +3,8 @@ package com.example.gmail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import java.util.Date
 
 class MainActivity : AppCompatActivity() {
@@ -43,8 +45,12 @@ class MainActivity : AppCompatActivity() {
         listEmail.add(Email("FPT Telecom", "Chuc mung quy khach da trung thuonwg mot chiec Toyota Civic", "12:34 PM"))
 
 
-        val adapter = MailAdapter(this, listEmail);
-        findViewById<ListView>(R.id.emailListView).adapter = adapter
+        val adapter = MailAdapter( listEmail);
+        val emailListView = findViewById<RecyclerView>(R.id.email_list_view);
+        emailListView.adapter = adapter;
+        emailListView.layoutManager = LinearLayoutManager(this);
+
+
 
     }
 }
